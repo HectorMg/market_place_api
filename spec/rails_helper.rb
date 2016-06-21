@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'shoulda-matchers'
 require 'factory_girl_rails'
 
-Dir[File.dirname(__FILE__) + "/support/*.rb"].each {|f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -61,6 +61,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::TestHelpers, :type => :controller
+
+  
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
