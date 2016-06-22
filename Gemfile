@@ -35,10 +35,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test do
-  gem "rspec-rails"
+group :development, :test do
   gem "factory_girl_rails"
   gem 'ffaker'
+end
+
+group :test do
+  gem "rspec-rails"
   gem "shoulda-matchers"
 end
 
