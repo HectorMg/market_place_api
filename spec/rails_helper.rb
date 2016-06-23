@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'factory_girl_rails'
+require 'email_spec'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -61,8 +62,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::TestHelpers, :type => :controller
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
 
-  
+
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
